@@ -22,10 +22,13 @@ jobs:
 
     - name: Build MBT
       env:
-        GOPATH: /home/runner/work/mbt
-        GOBIN: /home/runner/work/mbt/bin
+        GOPATH: ${{ github.workspace }}
+        GOBIN: ${{ github.workspace }}/bin
       run: |
-        pwd;
+        cd ..;
+        mkdir src;
+        mv mbt src;
+        cd src/mbt;
         make build
 
     - name: Push Binaries
