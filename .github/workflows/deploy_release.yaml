@@ -29,10 +29,11 @@ jobs:
 
     - name: Build MBT
 #      working-directory: ./src/mbt
-      env:
-        GOPATH: ${{ github.workspace }}/..
-        GOBIN: ${{ github.workspace }}/../bin
+      # env:
+      #   GOPATH: ${{ github.workspace }}/..
+      #   GOBIN: ${{ github.workspace }}/../bin
       run: |
+        go get -d -t -u -v -f all;
         make build;
 
     - name: Push Binaries
@@ -40,5 +41,5 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        args: ./build/${{ matrix.artifact_name }}
+        args: build/${{ matrix.artifact_name }}
 #      working-directory: ./src/mbt/build
