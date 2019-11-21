@@ -43,8 +43,15 @@ jobs:
         make build;
 
     - name: Push Binaries
-      uses: skx/github-action-publish-binaries@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        args: build/mbt*
+      run: |
+          chmod +x ./scripts/*
+          ./scripts/upload_git.sh build/{{ martix.artifact_name }}
+
+    # - name: Push Binaries
+    #   uses: skx/github-action-publish-binaries@master
+    #   env:
+    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #   with:
+    #     args: build/mbt*
