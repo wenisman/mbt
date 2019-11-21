@@ -22,8 +22,8 @@ jobs:
 
     - name: Build MBT
       env:
-        GOPATH: ${{ github.workspace }}
-        GOBIN: ${{ github.workspace }}/bin
+        GOPATH: /home/runner/work/mbt
+        GOBIN: /home/runner/work/mbt/bin
       run: |
         cd ..;
         mkdir src;
