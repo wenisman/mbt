@@ -22,8 +22,8 @@ jobs:
 
     - name: Build MBT
       env:
-        GOPATH: /home/runner/work
-        GOBIN: /home/runner/work/bin
+        GOPATH: /home/runner/work/mbt
+        GOBIN: /home/runner/work/mbt/bin
       run: |
         make build
 
