@@ -17,14 +17,19 @@ jobs:
     - uses: actions/setup-go@v1
       with:
         go-version: '1.12.x'
-    - run : |
-        echo $GOPATH
-        sudo mkdir -p $GOPATH/mbtproject
-        cd $GOPATH/mbtproject
+
+    - name: Set the Checkout directory
+      run : |
+        echo $GOPATH;
+        sudo mkdir -p $GOPATH/mbtproject;
+        cd $GOPATH/mbtproject;
+
     - uses: actions/checkout@master
-    - run: |
-        echo $GOPATH
+
+    - name: Build MBT
+      run: |
         make build
+
     - name: Push Binaries
       uses: skx/github-action-publish-binaries@master
       env:
