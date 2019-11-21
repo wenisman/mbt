@@ -42,5 +42,5 @@ jobs:
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-          args: ${{ matrix.artifact_name }}
-      working-directory: ./src/mbt/build
+          args: ./src/mbt/build/${{ matrix.artifact_name }}
+#      working-directory: ./src/mbt/build
