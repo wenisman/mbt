@@ -29,9 +29,9 @@ jobs:
 
     - name: Build MBT
 #      working-directory: ./src/mbt
-      # env:
-      #   GOPATH: $workspace
-      #   GOBIN: $workspace
+      env:
+        GOPATH: ${{GITHUB_WORKSPACE}}/..
+        GOBIN: ${{GITHUB_WORKSPACE}}/../bin
       run: |
         make build;
         pwd;
