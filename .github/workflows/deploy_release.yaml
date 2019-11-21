@@ -12,13 +12,17 @@ jobs:
       matrix:
         os:
           - ubuntu-18.04
-#          - macos-latest
+          - macos-latest
     steps:
-    - uses: actions/checkout@master
     - uses: actions/setup-go@v1
       with:
         go-version: '1.12.x'
+    - run : |
+        mkdir -p $GOPATH/mbtproject
+        cd $GOPATH/mbtproject
+    - uses: actions/checkout@master
     - run: |
+        echo $GOPATH
         make build
     - name: Push Binaries
       uses: skx/github-action-publish-binaries@master
