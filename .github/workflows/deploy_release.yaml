@@ -1,9 +1,9 @@
 name: Deploy Release
 
-on: push
-  # release:
-  #   types: 
-  #   - created 
+on:
+  release:
+    types: 
+    - created 
 
 jobs:
   buildAndDeploy:
@@ -32,6 +32,8 @@ jobs:
         GOPATH: ${{ github.workspace }}/..
         GOBIN: ${{ github.workspace }}/../bin
       run: |
+        # Create the correct Upload URL.
+        VERSION=$(jq --raw-output '.release.id' "$GITHUB_EVENT_PATH") 
         make build;
 
     - name: Push Binaries
