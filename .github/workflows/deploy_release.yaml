@@ -12,7 +12,7 @@ jobs:
       matrix:
         os:
           - ubuntu-18.04
-          - macos-latest
+#          - macos-latest
     steps:
     - uses: actions/checkout@master
     - uses: actions/setup-go@v1
