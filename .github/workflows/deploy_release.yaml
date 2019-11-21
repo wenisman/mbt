@@ -19,19 +19,19 @@ jobs:
           # - os: macos-latest
           #   artifact_name: mbt_darwin_x86_64
     steps:
-    - uses: actions/setup-go@v1
-      with:
-        go-version: '1.12.x'
-
     - uses: actions/checkout@master
       with:
         path: ./src
 
+    - uses: actions/setup-go@v1
+      with:
+        go-version: '1.12.x'
+
     - name: Build MBT
       working-directory: ./src/mbt
-      env:
-        GOPATH: ./
-        GOBIN: ./bin
+      # env:
+      #   GOPATH: $workspace
+      #   GOBIN: $workspace
       run: |
         make build;
         pwd;
@@ -42,4 +42,5 @@ jobs:
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-          args: src/mbt/build/${{ matrix.artifact_name }}
+          args: ${{ matrix.artifact_name }}
+      working-directory: ./src/mbt/build
