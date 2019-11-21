@@ -18,15 +18,12 @@ jobs:
       with:
         go-version: '1.12.x'
 
-    - name: Set the Checkout directory
-      run : |
-        echo $GOPATH;
-        sudo mkdir -p $GOPATH/mbtproject;
-        cd $GOPATH/mbtproject;
-
     - uses: actions/checkout@master
 
     - name: Build MBT
+      env:
+        GOPATH: /home/runner/work
+        GOBIN: /home/runner/work/bin
       run: |
         make build
 
