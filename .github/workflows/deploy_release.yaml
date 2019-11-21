@@ -25,6 +25,7 @@ jobs:
         GOPATH: /home/runner/work/mbt
         GOBIN: /home/runner/work/mbt/bin
       run: |
+        pwd;
         make build
 
     - name: Push Binaries
