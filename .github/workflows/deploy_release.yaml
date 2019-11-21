@@ -27,9 +27,11 @@ jobs:
       with:
         go-version: '1.12.x'
 
-    - if: matrix.os == 'macos-latest'
-        run: |
+    - 
+      run: |
+        if [ "$RUNNER_OS" == "macOS" ]; then
           brew install pkg-config
+        fi
 
     - name: Build MBT
       env:
