@@ -29,11 +29,11 @@ jobs:
 
     - name: Build MBT
 #      working-directory: ./src/mbt
-      # env:
-      #   GOPATH: ${{ github.workspace }}/..
-      #   GOBIN: ${{ github.workspace }}/../bin
+      env:
+        GOPATH: ${{ github.workspace }}/..
+        GOBIN: ${{ github.workspace }}/../bin
       run: |
-        go get -d -t -u -v -f all;
+        go get -t;
         make build;
 
     - name: Push Binaries
