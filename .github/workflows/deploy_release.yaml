@@ -28,7 +28,6 @@ jobs:
         go-version: '1.12.x'
 
     - if: matrix.os == 'macos-latest'
-        name: setup pkg-config
         run: |
           brew install pkg-config
 
