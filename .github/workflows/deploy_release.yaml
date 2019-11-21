@@ -10,6 +10,9 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
+        os: 
+          - ubuntu-18.04
+          - macos-latest
         include:
           - os: ubuntu-18.04
             artifact_name: mbt_linux_x86_64
