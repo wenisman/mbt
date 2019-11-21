@@ -30,7 +30,6 @@ jobs:
 
     - name: Build MBT
       working-directory: /home/runner/work/mbt/src/mbt
-      run: make build
       env:
         GOPATH: /home/runner/work/mbt
         GOBIN: /home/runner/work/mbt/bin
