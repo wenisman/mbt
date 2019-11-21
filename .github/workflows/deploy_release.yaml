@@ -18,7 +18,8 @@ jobs:
       with:
         go-version: '1.12.x'
     - run : |
-        mkdir -p $GOPATH/mbtproject
+        echo $GOPATH
+        sudo mkdir -p $GOPATH/mbtproject
         cd $GOPATH/mbtproject
     - uses: actions/checkout@master
     - run: |
