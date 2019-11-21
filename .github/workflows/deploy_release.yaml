@@ -10,9 +10,11 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os:
-          - ubuntu-18.04
-          # - macos-latest
+        include:
+          - os: ubuntu-18.04
+            artifact_name: mbt_linux_x86_64
+          - os: macos-latest
+            artifact_name: mbt_darwin_x86_64
     steps:
     - uses: actions/setup-go@v1
       with:
@@ -29,11 +31,13 @@ jobs:
         mkdir src;
         mv mbt src;
         cd src/mbt;
-        make build
+        make build;
+        pwd;
+        ls -asl build
 
     - name: Push Binaries
       uses: skx/github-action-publish-binaries@master
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-          args: 'src/mbt/build/mbt*'
+          args: src/mbt/build/${{ matrix.asset_name }}
