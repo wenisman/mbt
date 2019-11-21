@@ -33,7 +33,7 @@ jobs:
         GOBIN: ${{ github.workspace }}/../bin
       run: |
         # Create the correct Upload URL.
-        VERSION=$(jq --raw-output '.release.id' "$GITHUB_EVENT_PATH") 
+        export VERSION=$(jq --raw-output '.release.id' "$GITHUB_EVENT_PATH") 
         make build;
 
     - name: Push Binaries
