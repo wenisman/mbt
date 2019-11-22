@@ -47,4 +47,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         chmod +x ./scripts/*
-        ./scripts/upload_git.sh build/${{ martix.artifact_name }}
+        ./scripts/upload_git.sh build/${{ matrix.artifact_name }}
