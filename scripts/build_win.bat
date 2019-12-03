@@ -1,4 +1,4 @@
-SET MBT=%GOPATH%\src\github.com\mbtproject\mbt
+SET MBT=%cd%
 SET GIT2GO_PATH=%MBT%\vendor\github.com\libgit2\git2go
 SET LIBGIT2_PATH=%MBT%\vendor\libgit2
 SET OS=windows
