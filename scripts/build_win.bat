@@ -9,7 +9,7 @@ go version
 
 cd %LIBGIT2_PATH%
 mkdir install
-mkdir install/lib
+mkdir "install/lib"
 mkdir build
 cd build
 cmake -DTHREADSAFE=ON -DBUILD_CLAR=OFF -DBUILD_SHARED_LIBS=ON -DCMAKE_INSTALL_PREFIX=../install -DUSE_SSH=OFF -DCURL=OFF ..
