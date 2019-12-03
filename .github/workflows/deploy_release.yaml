@@ -42,7 +42,7 @@ jobs:
       env:
         GOPATH: ${{ github.workspace }}/..
         GOBIN: ${{ github.workspace }}/../bin
-      if: runner.os == 'Linux' or runner.os == 'macOS'
+      if: runner.os == 'Linux' || runner.os == 'macOS'
       run: |
         # Get the release version
         export VERSION=$(jq --raw-output '.release.id' "$GITHUB_EVENT_PATH") 
