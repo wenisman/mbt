@@ -66,7 +66,7 @@ jobs:
         RELEASE_ID: $(jq --raw-output '.release.id' "$GITHUB_EVENT_PATH")
         GITHUB_REPOSITORY: $(echo $GITHUB_REPOSITORY)
       with:
-        upload_url: https://uploads.github.com/repos/${{ env.GITHUB_REPOSITORY }}/releases/${{ env.RELEASE_ID }}/assets?name=${{ matrix.artifact_name }}
+        upload_url: https://uploads.github.com/repos/$GITHUB_REPOSITORY/releases/$RELEASE_ID/assets?name=${{ matrix.artifact_name }}
         asset_path: ./build/${{ matrix.artifact_name }}
         asset_name: ${{ matrix.artifact_name }}
         asset_content_type: application/zip
