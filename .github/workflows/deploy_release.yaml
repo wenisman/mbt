@@ -22,7 +22,7 @@ jobs:
           - os: windows-latest
             artifact_name: mbt_windows_x86.zip
 
-  steps:
+    steps:
     - uses: actions/checkout@master
       with:
         path: ./src
