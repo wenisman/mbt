@@ -55,11 +55,13 @@ jobs:
       if: runner.os == 'Windows'
       run: |
         choco install jq
+        cpan Path::Tiny
         .\scripts\build_win.bat
         
-    - name: Set environment variables
-      run: |
-        echo ::set-env name=RELEASE_ID::$(jq --raw-output '.release.id' "$GITHUB_EVENT_PATH")
+    # - name: Set environment variables
+    #   run: |
+    #     echo ::set-env name=RELEASE_ID::$(jq --raw-output '.release.id' "$GITHUB_EVENT_PATH")
+    #     echo ::set-env name=GITHUB_REPOSITORY::$(echo "$GITHUB_REPOSITORY")
 
     # - name: Upload Release Asset
     #   id: upload-release-asset 

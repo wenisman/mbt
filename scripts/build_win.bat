@@ -12,7 +12,7 @@ mkdir install
 mkdir install/lib
 mkdir build
 cd build
-cmake -DTHREADSAFE=ON -DBUILD_CLAR=OFF -DBUILD_SHARED_LIBS=ON -DCMAKE_C_FLAGS=-fPIC -DCMAKE_INSTALL_PREFIX=../install -DUSE_SSH=OFF -DCURL=OFF ..
+cmake -DTHREADSAFE=ON -DBUILD_CLAR=OFF -DBUILD_SHARED_LIBS=ON -DCMAKE_INSTALL_PREFIX=../install -DUSE_SSH=OFF -DCURL=OFF ..
 
 cmake --build .
 cmake --build . --target install
@@ -24,10 +24,6 @@ cd %MBT%
 
 rd /s /q build
 mkdir build
-
-IF "%APPVEYOR_REPO_TAG_NAME%"=="" (
-  go run scripts/update_version.go -custom "%APPVEYOR_REPO_COMMIT%"
-)
 
 go get -t
 go get github.com/stretchr/testify
