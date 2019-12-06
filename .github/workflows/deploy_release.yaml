@@ -1,9 +1,10 @@
 name: Deploy Release
 
 on:
-  release:
-    types: 
-    - created 
+  push
+  # release:
+  #   types: 
+  #   - created 
 
 jobs:
   buildAndDeploy:
@@ -45,7 +46,7 @@ jobs:
       if: runner.os == 'Linux' || runner.os == 'macOS'
       run: |
         # Get the release version
-        export VERSION=$(jq --raw-output '.release.id' "$GITHUB_EVENT_PATH") 
+#        export VERSION=$(jq --raw-output '.release.id' "$GITHUB_EVENT_PATH") 
         make build;
 
     - name: Build MBT Windows
@@ -56,6 +57,7 @@ jobs:
       run: |
         choco install jq --force
         cpan Path::Tiny
+        cpan Acme
         .\scripts\build_win.bat
         
     # - name: Set environment variables
