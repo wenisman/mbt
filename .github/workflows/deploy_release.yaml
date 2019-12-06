@@ -12,14 +12,14 @@ jobs:
     strategy:
       matrix:
         os: 
-          - ubuntu-18.04
-          - macos-latest
+          # - ubuntu-18.04
+          # - macos-latest
           - windows-latest
         include:
-          - os: ubuntu-18.04
-            artifact_name: mbt_linux_x86_64
-          - os: macos-latest
-            artifact_name: mbt_darwin_x86_64
+          # - os: ubuntu-18.04
+          #   artifact_name: mbt_linux_x86_64
+          # - os: macos-latest
+          #   artifact_name: mbt_darwin_x86_64
           - os: windows-latest
             artifact_name: mbt_windows_x86.zip
 
@@ -39,15 +39,15 @@ jobs:
           brew install pkg-config
         fi
 
-#     - name: Build MBT Linux/Mac
-#       env:
-#         GOPATH: ${{ github.workspace }}/..
-#         GOBIN: ${{ github.workspace }}/../bin
-#       if: runner.os == 'Linux' || runner.os == 'macOS'
-#       run: |
-#         # Get the release version
-# #        export VERSION=$(jq --raw-output '.release.id' "$GITHUB_EVENT_PATH") 
-#         make build;
+    - name: Build MBT Linux/Mac
+      env:
+        GOPATH: ${{ github.workspace }}/..
+        GOBIN: ${{ github.workspace }}/../bin
+      if: runner.os == 'Linux' || runner.os == 'macOS'
+      run: |
+        # Get the release version
+#        export VERSION=$(jq --raw-output '.release.id' "$GITHUB_EVENT_PATH") 
+        make build;
 
     - name: Build MBT Windows
       env:
