@@ -59,9 +59,7 @@ jobs:
         # cpan Path::Tiny
         # cpan Acme
         cd d:\a\mbt\mbt\src
-        $filebase = Join-Path $PSScriptRoot scripts\build_win.bat
-        echo $filebase
-        Start-Process -FilePath $filebase
+        Start-Process -FilePath .\scripts\build_win.bat
         
     # - name: Set environment variables
     #   run: |
