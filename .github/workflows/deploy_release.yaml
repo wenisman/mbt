@@ -56,6 +56,7 @@ jobs:
       if: runner.os == 'Windows'
       run: |
         cd d:\a\mbt\mbt\src
+        $env:GOPATH += d:\a\mbt\mbt\src\vendor
         .\scripts\build_win.bat
         
     # - name: Set environment variables
