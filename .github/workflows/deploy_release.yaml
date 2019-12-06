@@ -58,7 +58,7 @@ jobs:
         # choco install jq --force
         # cpan Path::Tiny
         # cpan Acme
-        cd $GITHUB_WORKSPACE
+        cd $Env.GITHUB_WORKSPACE
         $filebase = Join-Path $PSScriptRoot scripts\build_win.bat
         echo $filebase
         Start-Process -FilePath $filebase
