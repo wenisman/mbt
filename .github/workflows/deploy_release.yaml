@@ -58,7 +58,7 @@ jobs:
         choco install jq --force
         # cpan Path::Tiny
         # cpan Acme
-        # .\scripts\build_win.bat
+        .\scripts\build_win.bat
         
     # - name: Set environment variables
     #   run: |
