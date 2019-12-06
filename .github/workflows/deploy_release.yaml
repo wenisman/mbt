@@ -55,7 +55,7 @@ jobs:
         GOBIN: ${{ github.workspace }}/../bin
       if: runner.os == 'Windows'
       run: |
-        choco install jq pkgconfiglite --force
+        choco install jq --force
         # cpan Path::Tiny
         # cpan Acme
         # .\scripts\build_win.bat
