@@ -58,7 +58,8 @@ jobs:
         # choco install jq --force
         # cpan Path::Tiny
         # cpan Acme
-        Start-Process -FilePath .\scripts\build_win.bat
+        $filebase = Join-Path $PSScriptRoot .\scripts\build_win.bat
+        Start-Process -FilePath $filebase
         
     # - name: Set environment variables
     #   run: |
