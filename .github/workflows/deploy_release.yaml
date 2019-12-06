@@ -45,8 +45,6 @@ jobs:
         GOBIN: ${{ github.workspace }}/../bin
       if: runner.os == 'Linux' || runner.os == 'macOS'
       run: |
-        # Get the release version
-#        export VERSION=$(jq --raw-output '.release.id' "$GITHUB_EVENT_PATH") 
         make build;
 
     - name: Build MBT Windows
