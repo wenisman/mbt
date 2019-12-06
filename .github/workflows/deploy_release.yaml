@@ -55,11 +55,8 @@ jobs:
         GOBIN: ${{ github.workspace }}/../bin
       if: runner.os == 'Windows'
       run: |
-        # choco install jq --force
-        # cpan Path::Tiny
-        # cpan Acme
         cd d:\a\mbt\mbt\src
-        Start-Process -FilePath .\scripts\build_win.bat
+        .\scripts\build_win.bat
         
     # - name: Set environment variables
     #   run: |
