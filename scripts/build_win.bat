@@ -30,7 +30,7 @@ go get github.com/stretchr/testify
 
 copy %LIBGIT2_PATH%\install\bin\git2.dll lib\git2.dll
 
-go test -v ./... -mod=vendor
+go test -v ./...
 
 go build -o "build/%OUT%" -mod=vendor
 copy %LIBGIT2_PATH%\install\bin\git2.dll build\git2.dll
