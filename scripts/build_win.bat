@@ -17,7 +17,7 @@ cmake -DTHREADSAFE=ON -DBUILD_CLAR=OFF -DBUILD_SHARED_LIBS=ON -DCMAKE_INSTALL_PR
 cmake --build .
 cmake --build . --target install
 
-SET PKG_CONFIG_PATH=%LIBGIT2_PATH%/build
+SET PKG_CONFIG_PATH=%LIBGIT2_PATH%\build
 for /f %%i in ('pkg-config --libs %LIBGIT2_PATH%\build\libgit2.pc') do set CGO_LDFLAGS=%%i
 
 cd %MBT%
